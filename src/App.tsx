@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
-import ExpenseList from './expense-tracker/components/ExpenseList'
+import ExpenseList from './components/ExpenseList'
 import { useState } from 'react'
+import ExpenseFilter from './components/ExpenseFilter'
 
 function App() {
   const [expenses, setExpenses] = useState([
@@ -11,6 +12,9 @@ function App() {
   ])
   return (
     <div>
+      <div className='mb-3'>
+        <ExpenseFilter onSelectCategory={(category) => console.log(category)} />
+      </div>
       <ExpenseList
         expenses={expenses}
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
