@@ -4,6 +4,7 @@ import { useState } from 'react'
 import ExpenseFilter from './components/ExpenseFilter'
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState('')
   const [expenses, setExpenses] = useState([
     { id: 1, description: 'aaa', amount: 10, category: 'Utilities' },
     { id: 2, description: 'bbb', amount: 20, category: 'Utilities' },
@@ -13,7 +14,9 @@ function App() {
   return (
     <div>
       <div className='mb-3'>
-        <ExpenseFilter onSelectCategory={(category) => console.log(category)} />
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
       </div>
       <ExpenseList
         expenses={expenses}
