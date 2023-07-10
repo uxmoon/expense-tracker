@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import ExpenseList from './components/ExpenseList'
 import { useState } from 'react'
+
+import ExpenseList from './components/ExpenseList'
 import ExpenseFilter from './components/ExpenseFilter'
 
 function App() {
@@ -11,6 +11,9 @@ function App() {
     { id: 3, description: 'ccc', amount: 30, category: 'Utilities' },
     { id: 4, description: 'ddd', amount: 40, category: 'Utilities' },
   ])
+  const filteredExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses
   return (
     <div>
       <div className='mb-3'>
@@ -19,7 +22,7 @@ function App() {
         />
       </div>
       <ExpenseList
-        expenses={expenses}
+        expenses={filteredExpenses}
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
       />
     </div>
