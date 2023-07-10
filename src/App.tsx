@@ -18,6 +18,8 @@ function App() {
     : expenses
   return (
     <div>
+      <h1>Expense tracker</h1>
+      <h2>Add new expense</h2>
       <div className='mb-5'>
         <ExpenseForm
           onSubmit={(expense) =>
@@ -25,6 +27,7 @@ function App() {
           }
         />
       </div>
+      <h2>Expenses list</h2>
       <div className='mb-3'>
         <ExpenseFilter
           onSelectCategory={(category) => setSelectedCategory(category)}
